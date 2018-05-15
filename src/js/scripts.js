@@ -1,45 +1,18 @@
 document.addEventListener("DOMContentLoaded", function() {
   // variables
-  var input = document.querySelector('input');
-  var tag = [
-   "Dear Team Class Action,",
-   "Thank you",
-   "for the opportunity to join your team.",
-   "I look forward to creating cool things with you all",
-   "Best",
-   "Tim Frankie"
-  ];
-  var results;
-
-  // functions
-  function autocomplete(val) {
-    var tag_return = [];
-
-    for (i = 0; i < tag.length; i++) {
-      if (val === tag[i].slice(0, val.length)) {
-        tag_return.push(tag[i]);
+  var xhr = new XMLHttpRequest();
+  var API_Key = '9004815-ec1e7f3573a0246f9f6c2004d';
+  xhr.open('GET', 'https://pixabay.com/api/?username=tfrankie88&key='+API_Key+'&q=kittens&image_type=photo');
+  xhr.onload = function() {
+      if (xhr.status === 200) {
+        var imageInfo = JSON.parse(xhr.responseText);
+        for (i = 0; i <= 10; i++) {
+          console.log(imageInfo.hits[i].largeImageURL)
+        }
       }
-    }
-
-    return tag_return;
-  }
-
-  // events
-  input.onkeyup = function(e) {
-    input_val = this.value; // updates the variable on each ocurrence
-    if (input_val.length > 0) {
-      var tag_to_show = [];
-      autocomplete_results = document.getElementById("autocomplete-results");
-      autocomplete_results.innerHTML = '';
-      tag_to_show = autocomplete(input_val);
-      for (i = 0; i < tag_to_show.length; i++) {
-        console.log(tag_to_show);
-        autocomplete_results.innerHTML += '<li>' + tag_to_show[i] + '</li>';
+      else {
+        console.log('Request failed.  Returned status of ' + xhr.status);
       }
-      autocomplete_results.style.display = 'block';
-    } else {
-      tag_to_show = [];
-      autocomplete_results.innerHTML = '';
-    }
-  }
+  };
+  xhr.send();
 });
