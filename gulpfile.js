@@ -8,6 +8,7 @@ var htmlmin = require('gulp-htmlmin');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
+var deploy      = require('gulp-gh-pages');
 
 // Set the browser that you want to supoprt
 const AUTOPREFIXER_BROWSERS = [
@@ -69,4 +70,10 @@ gulp.task('default', ['clean'], function () {
     'scripts',
     'pages'
   );
+});
+
+// Push build to gh-pages
+gulp.task('deploy', function () {
+  return gulp.src("./dist/**/*")
+    .pipe(deploy())
 });
