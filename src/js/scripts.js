@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
   // variables
+  var key = config.API_KEY;
   var xhr = new XMLHttpRequest();
-  var API_Key = '9004815-ec1e7f3573a0246f9f6c2004d';
   var gridItem = document.querySelector('.grid-wrapper');
 
   // grid wrapper item creator
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   // XMLHttpRequest
-  xhr.open('GET', 'https://pixabay.com/api/?username=tfrankie88&key='+API_Key+'&q=kittens&image_type=photo');
+  xhr.open('GET', 'https://pixabay.com/api/?username=tfrankie88&key='+key+'&q=kittens&image_type=photo');
   xhr.onload = function() {
       if (xhr.status === 200) {
         var imageInfo = JSON.parse(xhr.responseText);

@@ -1,12 +1,19 @@
-## Morgan & Morgan Coding Assessment
+## IBM Coding Assessment
 
-This is a static single page to present a simple autocomplete search widget.
+A single page to present simple XMLHttpRequest to pixabay using vanilla javascript, for kitten images.
 
 ### directions
 1. Unzip file
 2. run `npm install --save` for dependencies
-3. run `gulp` to compress the scss, js, and html files from src folder into a dist folder to minify files and convert scss in css
-
-### notes
-1. Very simple widget using vanilla javascript, with hardcoded array items for autocomplete example.
-2. style: the list of autocompleted items has a slight padding to add a nice ux bottom border prior to search.
+3. in `src/js` touch `config.js` and create your pixabay API variable
+```
+var config = {
+  API_KEY : 'your api key'
+}
+```
+4. in `src/index.html` add `<script src="./js/config.js" type="text/javascript"></script>` to the head directly above `<script src="./js/config.js" type="text/javascript"></script>`
+5. to protect API create a `.gitignore` file and within it add
+```
+config.js
+```
+6. run `gulp` to compress the scss, js, and html files from src folder into a dist folder to minify files and convert scss in css
