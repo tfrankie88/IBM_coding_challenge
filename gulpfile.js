@@ -8,7 +8,7 @@ var htmlmin = require('gulp-htmlmin');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
-var deploy      = require('gulp-gh-pages');
+var deploy = require('gulp-gh-pages');
 
 // Set the browser that you want to supoprt
 const AUTOPREFIXER_BROWSERS = [
