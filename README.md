@@ -3,7 +3,7 @@
 A single page to present simple XMLHttpRequest to pixabay using vanilla javascript, for kitten images.
 
 ### directions
-1. Unzip file
+1. Clone or fork branch
 2. run `npm install --save` for dependencies
 3. in `src/js` touch `config.js` and create your pixabay API variable
 ```
